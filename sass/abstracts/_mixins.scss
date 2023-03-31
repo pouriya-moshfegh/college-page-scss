@@ -1,0 +1,58 @@
+@mixin clearfix {
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+}
+
+// media qurey
+// for the desktop first:
+// 0-600:phone
+// 600-900:tablet and portrait
+// 900-1200:tablet landscape
+// 1200-1800 is where normal style is applied
+// 1800px+ :big desktop
+
+@mixin respond-phone {
+    @media (max-width: 600px) {
+        @content;
+    }
+}
+
+/*
+breakpoint argument
+_ phone
+_ tablet
+_ tab-land
+_ big desktop
+*/
+@mixin respond($breakpoint) {
+    @if $breakpoint == phone {
+        @media (max-width: 37.5em) {
+            //600px
+            @content;
+        }
+    }
+
+    @if $breakpoint == tablet {
+        @media (max-width: 56.25em) {
+            //900px
+            @content;
+        }
+    }
+
+    @if $breakpoint == tab-land {
+        //1200px
+        @media (max-width: 75em) {
+            @content;
+        }
+    }
+
+    @if $breakpoint == big-desktop {
+        //1800px
+        @media (min-width: 112.5em) {
+            @content;
+        }
+    }
+}

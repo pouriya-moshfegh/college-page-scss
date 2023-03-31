@@ -1,0 +1,73 @@
+.story-box {
+    transform: skewY(-4deg);
+    background-color: rgba($color-primary-white,.8);
+    width: 70%;
+    height: 37vh;
+    margin: 2.7rem auto;
+    border-radius: 2px;
+    box-shadow: 2rem 2rem 5rem rgba(0, 0, 0, .2);
+    &__img {
+        position: relative;
+        width: 100%;
+        object-fit: cover;
+        transition: all .3s;
+    }
+
+    &__l {
+        margin-top: 4rem;
+        shape-outside: circle(50% at 50% 50%);
+        -webkit-shape-outside: circle(50% at 50% 50%);
+        clip-path:circle(47% at 50% 50%);
+       -webkit-clip-path:  circle(47% at 50% 50%);
+        float: left;
+        margin-left: 3rem;
+        position: relative;
+        max-width: 20%;
+        min-width: 15rem;
+        overflow: hidden;
+
+        &__title {
+            transition: all .5s;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            top: 90%;
+            opacity: 0;
+            font-size: 2.5rem;
+            border-radius: 5px;
+            padding: .3rem;
+            color: rgba($color-primary-white, 0.9);
+        }
+    }
+
+    &__detail {
+     padding-top:3rem;
+    }
+
+    &:hover &__img {
+        filter: blur(2px) brightness(80%);
+        transform: scale(1.1);
+
+    }
+
+    &:hover &__l__title {
+        opacity: 1;
+        top: 50%;
+    }
+
+    &>* {
+        transform: skewY(4deg);
+    }
+    @include respond (tablet) {
+        height: calc(max-content + 1rem);
+        margin: 3rem;
+        width: 90%;
+
+    }
+    @include respond (phone) {
+        padding: 5px;
+        height: max-content;
+        margin: 3rem;
+        width: 90%;
+    }
+}

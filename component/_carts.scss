@@ -1,0 +1,140 @@
+.cart {
+    border-radius: 5px;
+    perspective: 150rem;
+    -moz-perspective: 150rem;
+    position: relative;
+
+    &__side {
+        overflow: hidden;
+        box-shadow: 1rem 3rem 4rem rgba(0, 0, 0, .2);
+        background-color: rgba($color-primary-white, .7);
+        height: 50rem;
+        transition: all .8s;
+        width: 100%;
+        backface-visibility: hidden;
+
+        &-front {
+            background-color: rgba($color-primary-white, .7);
+
+            &__header {
+                position: relative;
+                height: 50%;
+                background-size: cover;
+                background-repeat: no-repeat;
+                clip-path: polygon(0 0, 100% 0, 100% 30vh, -18% 80%);
+                color: rgba($color-primary-white,.7);
+
+                // z-index: 10;
+                .detail-1 {
+                    // border-radius: 5px;
+                    font-size: 2rem;
+                    position: absolute;
+                    padding: 1rem;
+                    bottom: 10rem;
+                    right: 10;
+        
+                }
+                .detail-2{
+                    position: absolute;
+                    padding: 1rem;
+                    bottom: 7rem;
+                    right: 2rem;
+                }
+            }
+
+            &__bottom {
+                text-align: center;
+                color: rgba(0, 0, 0, 0.7);
+
+                ul {
+                    width: 90%;
+                    margin: auto;
+                }
+
+                li {
+                    list-style-type: none;
+                    margin: 2.3rem 0 auto;
+                    font-size: 1.5rem;
+                    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+                }
+            }
+
+            &-1 {
+                .cart__side-front__header {
+
+                    background-image: linear-gradient(to right bottom,
+                            rgba($color-primary-green-light, 0.8),
+                            rgba($color-primary-green-dark, 0.8)),
+                        url(../source/img/College_in_the_fall.jpg);
+                        .detail-1,.detail-2{
+                            background-color: rgba(rgba($color-primary-green-light, 0.8), .5);
+                        }
+                }
+            }
+
+            &-2 {
+                .cart__side-front__header {
+
+                    background-image: linear-gradient(to right bottom,
+                            rgba($color-primary-orange-light, 0.6),
+                            rgba($color-primary-orange-dark, 0.6)),
+                        url(../source/img/woman-higher-education.avif);
+                }
+                .detail-1,.detail-2{
+                    background-color: rgba($color-primary-orange-dark, 0.7);
+                }
+            }
+
+            &-3 {
+                .cart__side-front__header {
+
+                    background-image: linear-gradient(to right bottom,
+                            rgba($color-primary-blue-light, 0.8),
+                            rgba($color-primary-blue-dark, 0.8)),
+                        url(../source/img/Collegebgs.jpg);
+                }
+                .detail-1,.detail-2{
+                    background-color: rgba(rgba($color-primary-blue-light, 0.8), .5);
+                }
+            }
+        }
+
+        &-back{
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform: rotateY(180deg);
+            font-size: 3rem;
+            text-align: center;
+         &-1{
+            background-image: linear-gradient(to right bottom, $color-primary-green-light, $color-primary-green-dark);
+         }
+         &-2{
+            background-image: linear-gradient(to right bottom, $color-primary-orange-light, $color-primary-orange-dark);
+         }
+         &-3{
+            background-image: linear-gradient(to right bottom, $color-primary-blue-light, $color-primary-blue-dark);
+         }
+        }
+    }
+
+    &:hover &__side {
+        transform: rotateY(180deg);
+    }
+
+    &:hover &__side-back {
+        opacity: 1;
+        transform: rotateY(0);
+    }
+    @include respond (tablet) {
+        width: 90%;
+        margin: 3rem 5rem;
+     }
+  
+    @include respond (phone) {
+        width: 100%;
+        margin: 4rem 5rem;
+     }
+  
+}
